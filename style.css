@@ -12,39 +12,68 @@ body {
     min-height: 100vh;
 }
 
+/* พื้นหลังเคลื่อนไหว */
+.container {
+  position: absolute;
+  inset: 0;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: -145%;
+  rotate: -45deg;
+  background: #000000;
+  background-image: radial-gradient(4px 100px at 0px 235px, rgb(255, 140, 17), #0000),
+    radial-gradient(4px 100px at 300px 235px, rgb(255, 119, 0), #884e2800);
+  animation: hi 150s linear infinite;
+}
+
+@keyframes hi {
+  0% {
+    background-position: 0px 220px, 3px 220px;
+  }
+  to {
+    background-position: 0px 6800px, 3px 6800px;
+  }
+}
+
 /* Preloader (หนูวิ่ง) */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    position: fixed;
     z-index: 1000;
 }
-.loading-animation {
-    width: 80px;
-    height: 80px;
-    background: url('mouse.gif') no-repeat center;
-    background-size: contain;
+
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  width: 12em;
+  height: 12em;
 }
 
-/* Swiper สไลด์โชว์ */
-.swiper-container {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 15px gold;
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
 }
 
-.swiper-slide img {
-    width: 100%;
-    border-radius: 10px;
+.wheel,
+.spoke {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center, hsla(0,0%,60%,0) 47.8%, hsl(0,0%,60%) 48%);
+  z-index: 2;
 }
 
 /* ปุ่มกดใจ (Like) */
