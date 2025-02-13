@@ -6,22 +6,30 @@
     <title>เลือกที่พัก</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 </head>
 <body>
-    <div class="container"></div> <!-- พื้นหลังเคลื่อนไหว -->
+    <div class="container"></div>
 
     <div class="content">
         <h1>เลือกที่พักของคุณ</h1>
 
         <div class="place-card">
-            <div class="image-gallery">
-                <img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพักที่เที่ยว" class="place-image">
-                <div class="small-images">
-                    <img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพักเพิ่มเติม">
-                    <img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพักเพิ่มเติม">
-                    <img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพักเพิ่มเติม">
+            <!-- แสดงรูปภาพแบบสไลด์ -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 1"></div>
+                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 2"></div>
+                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 3"></div>
+                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 4"></div>
+                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 5"></div>
                 </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+
             <div class="details">
                 <h2>🏡 บ้านพักริมทะเล</h2>
                 <p>🌊 ห่างทะเล: <strong>6.8 ก.ม.</strong> | 🏠 รับสูงสุด: <strong>15 คน</strong></p>
@@ -30,9 +38,14 @@
                 <div class="pricing">
                     <label>💰 ค่าที่พัก: <strong id="price">5000</strong> บาท</label>
                     <label>🔒 ค่าประกัน: <strong id="deposit">1000</strong> บาท</label>
-                    <label>🛏️ ค่าเพิ่มเตียง (300 บาท/เตียง):  
-                        <input type="number" id="extraBeds" value="0" min="0" max="5" oninput="updateTotal()">
-                    </label>
+                    <div class="bed-selection">
+                        <label>🛏️ ค่าเพิ่มเตียง (300 บาท/เตียง):</label>
+                        <div class="bed-ui">
+                            <button onclick="changeBeds(-1)">➖</button>
+                            <input type="number" id="extraBeds" value="0" min="0" max="5" readonly>
+                            <button onclick="changeBeds(1)">➕</button>
+                        </div>
+                    </div>
                     <label>💳 รวมค่าเตียงเสริม: <strong id="extraBedCost">0</strong> บาท</label>
                 </div>
 
