@@ -16,4 +16,3 @@ function updateTotal() {
 function confirmBooking() {
     alert("✅ การจองสำเร็จ! โปรดตรวจสอบรายละเอียดการชำระเงิน");
 }
-
