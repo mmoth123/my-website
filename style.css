@@ -1,25 +1,36 @@
-/* ปรับปรุงสไตล์สำหรับเว็บเลือกที่พัก */
+/* ปรับปรุง UI ให้ขนาดเล็กลง และพื้นหลังเคลื่อนไหว */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(45deg, #2c3e50, #4ca1af);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 15s infinite linear;
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
 }
 
 .swiper-container {
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .swiper-slide img {
@@ -27,26 +38,31 @@ body {
     border-radius: 10px;
 }
 
+.details {
+    font-size: 14px;
+    text-align: left;
+}
+
 .bed-selection {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 5px;
 }
 
 .bed-ui {
     display: flex;
     align-items: center;
     background: #444;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
 .bed-ui button {
     background: #ffcc00;
     border: none;
-    padding: 8px 12px;
-    font-size: 18px;
+    padding: 5px 10px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
@@ -57,11 +73,11 @@ body {
 }
 
 .bed-ui input {
-    width: 50px;
+    width: 40px;
     text-align: center;
     border: none;
     background: none;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
 }
@@ -69,13 +85,14 @@ body {
 .book-now {
     background: #28a745;
     color: white;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 14px;
+    padding: 8px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 10px;
     transition: background 0.3s;
+    width: 100%;
 }
 
 .book-now:hover {
