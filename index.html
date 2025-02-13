@@ -3,14 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บไซต์ของฉัน</title>
-    <style>
-        body { text-align: center; font-family: Arial, sans-serif; padding: 50px; }
-        h1 { color: #333; }
-    </style>
+    <title>เลือกที่เที่ยว</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>ยินดีต้อนรับสู่เว็บไซต์ของฉัน!</h1>
-    <p>นี่คือตัวอย่างเว็บไซต์ที่โฮสต์บน GitHub Pages</p>
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <h1>เลือกที่เที่ยวของคุณ</h1>
+        
+        <div class="place-card">
+            <img src="https://source.unsplash.com/800x400/?beach,house" alt="บ้านพักที่เที่ยว">
+            <div class="details">
+                <h2>บ้านพักริมทะเล</h2>
+                <p>🌊 ห่างทะเล: 6.8 ก.ม. | 🏠 รับสูงสุด: 15 คน</p>
+                <p>🕒 เช็คอิน: 14:00 น. | 🏃‍♂️ เช็คเอาท์ก่อน: 11:00 น.</p>
+                
+                <div class="pricing">
+                    <label>💰 ค่าที่พัก: <span id="price">5000</span> บาท</label>
+                    <label>🔒 ค่าประกัน: <span id="deposit">1000</span> บาท</label>
+                    <label>🛏️ ค่าเพิ่มเตียง: <input type="number" id="extraBeds" value="0" min="0" max="5"> เตียง</label>
+                </div>
+
+                <div class="total">
+                    <h3>💵 ยอดรวม: <span id="totalPrice">6000</span> บาท</h3>
+                    <h4>🔄 ได้คืน: <span id="refund">1000</span> บาท (คืนค่าประกัน)</h4>
+                </div>
+
+                <div class="payment-info">
+                    <p>💳 ชำระเงินกับ: <strong>นางสาว สมใจ สุขใจ</strong></p>
+                    <p>🏦 ธนาคารไทยพาณิชย์: <strong>123-456-7890</strong> <span class="verified">✔️</span></p>
+                </div>
+
+                <button onclick="confirmBooking()">ยืนยันการจอง</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
