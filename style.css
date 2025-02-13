@@ -1,4 +1,4 @@
-/* ปรับขนาด UI ให้เล็กลง และแสดงรายการที่พักแบบ Grid พร้อมพื้นหลังเคลื่อนไหว */
+/* ปรับ UI ให้เล็กลง และแสดงรายการที่พักแบบ Grid พร้อมพื้นหลังเคลื่อนไหว */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,6 +15,8 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
+    position: relative;
+    z-index: 1;
 }
 
 .place-list {
@@ -39,6 +41,8 @@ body {
     height: auto;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 
 .swiper-wrapper {
@@ -93,33 +97,16 @@ body {
     color: white;
 }
 
-.book-now {
-    background: #28a745;
-    color: white;
-    font-size: 12px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;
-    transition: background 0.3s;
-    width: 100%;
-}
-
-.book-now:hover {
-    background: #218838;
-}
-
 /* พื้นหลังเคลื่อนไหว */
-.container::before {
+body::before {
     content: "";
-    position: absolute;
-    inset: -145%;
-    rotate: -45deg;
-    background: #000000;
-    background-image: radial-gradient(4px 100px at 0px 235px, rgb(255, 140, 17), #0000),
-                      radial-gradient(4px 100px at 300px 235px, rgb(255, 119, 0), #884e2800);
-    animation: backgroundAnimation 100s linear infinite;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    background-image: repeating-linear-gradient(45deg, rgba(255, 140, 17, 0.8) 0px, rgba(255, 140, 17, 0.8) 2px, transparent 2px, transparent 10px),
+                      repeating-linear-gradient(-45deg, rgba(255, 119, 0, 0.5) 0px, rgba(255, 119, 0, 0.5) 2px, transparent 2px, transparent 10px);
+    animation: backgroundAnimation 10s linear infinite;
+    z-index: -1;
 }
 
 @keyframes backgroundAnimation {
