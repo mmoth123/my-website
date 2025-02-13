@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Prompt', sans-serif;
-}
-
-/* พื้นหลังเคลื่อนไหว */
+/* ตั้งค่าพื้นหลังให้เป็นลายเส้นเคลื่อนไหว */
 .container {
     position: fixed;
     inset: 0;
@@ -20,9 +11,12 @@
     inset: -145%;
     rotate: -45deg;
     background: #000000;
-    background-image: radial-gradient(4px 100px at 0px 235px, rgb(255, 140, 17), #0000),
-                      radial-gradient(4px 100px at 300px 235px, rgb(255, 119, 0), #884e2800);
-    background-size: 300px 235px, 300px 235px;
+    background-image: 
+        radial-gradient(4px 100px at 0px 235px, rgb(255, 140, 17), #0000),
+        radial-gradient(4px 100px at 300px 235px, rgb(255, 119, 0), #884e2800),
+        radial-gradient(4px 100px at 0px 252px, rgb(156, 14, 137), #0000),
+        radial-gradient(4px 100px at 300px 252px, rgb(23, 41, 206), #0000);
+    background-size: 300px 235px, 300px 235px, 300px 252px, 300px 252px;
     animation: moveBg 150s linear infinite;
 }
 
@@ -31,7 +25,7 @@
     100% { background-position: 0px 6800px, 3px 6800px; }
 }
 
-/* เนื้อหาหลัก */
+/* ตั้งค่าให้เนื้อหาขยับตามพื้นหลัง */
 .content {
     display: flex;
     flex-direction: column;
@@ -40,6 +34,7 @@
     height: 100vh;
     color: white;
     text-align: center;
+    position: relative;
 }
 
 h1 {
@@ -49,7 +44,6 @@ h1 {
     border-radius: 10px;
 }
 
-/* การ์ดที่พัก */
 .place-card {
     background: rgba(255, 255, 255, 0.15);
     padding: 20px;
@@ -58,37 +52,6 @@ h1 {
     width: 90%;
     max-width: 500px;
     margin-top: 20px;
-}
-
-.place-card img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.details {
-    padding: 10px;
-    font-size: 16px;
-}
-
-.pricing label {
-    display: block;
-    font-size: 18px;
-    margin-top: 5px;
-}
-
-.total h3 {
-    color: #ffd700;
-    margin-top: 10px;
-}
-
-.payment-info {
-    margin-top: 20px;
-    font-size: 16px;
-}
-
-.verified {
-    color: green;
-    font-size: 20px;
 }
 
 button {
