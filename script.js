@@ -1,27 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    new Swiper('.swiper-container', {
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-    });
-
     updateTotal();
 });
 
-function changeBeds(amount) {
-    let bedInput = document.getElementById("extraBeds");
-    let extraBedCostLabel = document.getElementById("extraBedCost");
-    let totalPriceLabel = document.getElementById("totalPrice");
-
-    let currentBeds = parseInt(bedInput.value) || 0;
-    let newBeds = currentBeds + amount;
-    
-    if (newBeds >= 0 && newBeds <= 5) {
-        bedInput.value = newBeds;
-        let extraBedCost = newBeds * 300;
-        extraBedCostLabel.innerText = extraBedCost;
-        updateTotal();
-    }
+function changeImage(imageSrc) {
+    document.getElementById("mainImage").src = imageSrc;
 }
 
 function updateTotal() {
@@ -37,4 +19,8 @@ function updateTotal() {
     document.getElementById('extraBedCost').innerText = extraBedCost;
     document.getElementById('totalPrice').innerText = total;
     document.getElementById('refund').innerText = refund;
+}
+
+function viewHouse() {
+    window.open("https://example.com/house-details", "_blank");
 }
