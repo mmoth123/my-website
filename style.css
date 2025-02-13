@@ -1,4 +1,4 @@
-/* ปรับปรุง UI ให้ขนาดเล็กลง และพื้นหลังเคลื่อนไหว */
+/* ปรับขนาด UI ให้เล็กลง และแสดงรายการที่พักแบบ Grid */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(45deg, #2c3e50, #4ca1af);
@@ -8,7 +8,6 @@ body {
     padding: 0;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -19,18 +18,31 @@ body {
 }
 
 .container {
-    max-width: 350px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.place-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.place-card {
     background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-size: 14px;
 }
 
 .swiper-container {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .swiper-slide img {
@@ -39,8 +51,7 @@ body {
 }
 
 .details {
-    font-size: 14px;
-    text-align: left;
+    font-size: 12px;
 }
 
 .bed-selection {
@@ -61,8 +72,8 @@ body {
 .bed-ui button {
     background: #ffcc00;
     border: none;
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 5px 8px;
+    font-size: 12px;
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
@@ -73,11 +84,11 @@ body {
 }
 
 .bed-ui input {
-    width: 40px;
+    width: 30px;
     text-align: center;
     border: none;
     background: none;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: white;
 }
@@ -85,12 +96,12 @@ body {
 .book-now {
     background: #28a745;
     color: white;
-    font-size: 14px;
-    padding: 8px 15px;
+    font-size: 12px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 5px;
     transition: background 0.3s;
     width: 100%;
 }
