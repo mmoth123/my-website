@@ -44,3 +44,10 @@ function updateTotal() {
 function bookNow() {
     alert("ติดต่อจองที่พักได้ที่ LINE: @yourline หรือโทร 080-xxx-xxxx");
 }
+
+// ป้องกัน Swiper ซ้อนทับ
+setTimeout(() => {
+    document.querySelectorAll('.swiper-container').forEach(container => {
+        container.style.overflow = 'hidden';
+    });
+}, 100);
