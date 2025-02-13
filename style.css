@@ -7,44 +7,57 @@
     font-family: 'Prompt', sans-serif;
 }
 
-body {
-    overflow: hidden;
-    background: linear-gradient(to bottom, #6a11cb, #2575fc);
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* พื้นหลังเคลื่อนไหว */
+.container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
 }
 
-.background-animation {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url("https://source.unsplash.com/1600x900/?nature,water") no-repeat center center/cover;
-    animation: moveBg 20s linear infinite;
-    z-index: -1;
-    filter: blur(3px) brightness(0.7);
+.container::before {
+    content: "";
+    position: absolute;
+    inset: -145%;
+    rotate: -45deg;
+    background: #000000;
+    background-image: radial-gradient(4px 100px at 0px 235px, rgb(255, 140, 17), #0000),
+                      radial-gradient(4px 100px at 300px 235px, rgb(255, 119, 0), #884e2800);
+    background-size: 300px 235px, 300px 235px;
+    animation: moveBg 150s linear infinite;
 }
 
 @keyframes moveBg {
-    0% { transform: scale(1.1); }
-    50% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+    0% { background-position: 0px 220px, 3px 220px; }
+    100% { background-position: 0px 6800px, 3px 6800px; }
 }
 
-.container {
+/* เนื้อหาหลัก */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* การ์ดที่พัก */
+.place-card {
     background: rgba(255, 255, 255, 0.15);
     padding: 20px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     width: 90%;
-    max-width: 600px;
-}
-
-h1 {
-    font-size: 28px;
+    max-width: 500px;
+    margin-top: 20px;
 }
 
 .place-card img {
@@ -54,9 +67,6 @@ h1 {
 
 .details {
     padding: 10px;
-}
-
-.details p {
     font-size: 16px;
 }
 
@@ -90,4 +100,3 @@ button {
     border-radius: 5px;
     margin-top: 10px;
 }
-
