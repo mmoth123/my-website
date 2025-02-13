@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const bgContainer = document.querySelector(".container");
+    let progressBar = document.querySelector(".progress-bar-inner");
+    let progress = 0;
+    let loadingTime = Math.floor(Math.random() * 3000) + 3000; // 3-6 วินาที
+    let interval = loadingTime / 100;
 
-    function createStars() {
-        for (let i = 0; i < 50; i++) { // จำนวนดาวที่ต้องการ
-            let star = document.createElement("div");
-            star.classList.add("star");
-            star.style.top = `${Math.random() * 100}vh`;
-            star.style.left = `${Math.random() * 100}vw`;
-            star.style.animationDuration = `${Math.random() * 5 + 5}s`;
-            bgContainer.appendChild(star);
+    let progressInterval = setInterval(() => {
+        if (progress < 100) {
+            progress++;
+            progressBar.style.width = progress + "%";
+        } else {
+            clearInterval(progressInterval);
+            window.location.href = "index.html"; // ไปหน้าเว็บหลัก
         }
-    }
-
-    createStars(); // เรียกฟังก์ชันเพื่อสร้างดาว
+    }, interval);
 });
