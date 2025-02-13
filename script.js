@@ -12,8 +12,3 @@ function updateTotal() {
     document.getElementById('totalPrice').innerText = total;
     document.getElementById('refund').innerText = refund;
 }
-
-function confirmBooking() {
-    updateTotal();
-    alert("✅ คำนวณราคาเรียบร้อย! กรุณาตรวจสอบยอดชำระ");
-}
