@@ -1,7 +1,25 @@
-/* รูปภาพแบบ Carousel */
+/* ปรับปรุงสไตล์สำหรับเว็บเลือกที่พัก */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .swiper-container {
     width: 100%;
     height: auto;
+    margin-bottom: 20px;
 }
 
 .swiper-slide img {
@@ -9,10 +27,10 @@
     border-radius: 10px;
 }
 
-/* ปรับ UI ของช่องเพิ่มเตียง */
 .bed-selection {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -31,6 +49,11 @@
     font-size: 18px;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.bed-ui button:active {
+    transform: scale(0.9);
 }
 
 .bed-ui input {
@@ -41,4 +64,20 @@
     font-size: 18px;
     font-weight: bold;
     color: white;
+}
+
+.book-now {
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.book-now:hover {
+    background: #218838;
 }
