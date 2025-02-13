@@ -7,12 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ตั้งค่าเริ่มต้น
-    document.getElementById('extraBeds').value = 0;
+    document.querySelectorAll('.extraBeds').forEach(input => {
+        input.value = 0;
+    });
     updateTotal();
 });
 
-function changeBeds(amount) {
-    let bedInput = document.getElementById("extraBeds");
+function changeBeds(amount, element) {
+    let bedInput = element.closest('.pricing').querySelector(".extraBeds");
     let currentBeds = parseInt(bedInput.value) || 0;
     let newBeds = currentBeds + amount;
 
@@ -23,18 +25,20 @@ function changeBeds(amount) {
 }
 
 function updateTotal() {
-    let basePrice = 5000;
-    let deposit = 1000;
-    let extraBedPrice = 300;
-    
-    let extraBeds = parseInt(document.getElementById('extraBeds').value) || 0;
-    let extraBedCost = extraBeds * extraBedPrice;
-    let total = basePrice + extraBedCost;
-    let refund = deposit;
-    
-    document.getElementById('extraBedCost').innerText = extraBedCost;
-    document.getElementById('totalPrice').innerText = total + deposit;
-    document.getElementById('refund').innerText = refund;
+    document.querySelectorAll('.place-card').forEach(card => {
+        let basePrice = 5000;
+        let deposit = 1000;
+        let extraBedPrice = 300;
+        
+        let extraBeds = parseInt(card.querySelector('.extraBeds').value) || 0;
+        let extraBedCost = extraBeds * extraBedPrice;
+        let total = basePrice + extraBedCost;
+        let refund = deposit;
+        
+        card.querySelector('.extraBedCost').innerText = extraBedCost;
+        card.querySelector('.totalPrice').innerText = total + deposit;
+        card.querySelector('.refund').innerText = refund;
+    });
 }
 
 function bookNow() {
