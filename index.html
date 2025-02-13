@@ -2,23 +2,36 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>เลือกที่พัก</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Resort</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>เลือกที่พักของคุณ</h1>
-        
+    <!-- Preloader (หนูวิ่ง) -->
+    <div id="preloader">
+        <div class="loading-animation"></div>
+        <p>กำลังโหลดข้อมูล...</p>
+    </div>
+
+    <!-- เนื้อหาหลัก -->
+    <div class="container" id="main-content" style="display: none;">
+        <header>
+            <h1>เลือกที่พักของคุณ</h1>
+            <button id="toggle-dark-mode">🌓</button>
+        </header>
+
         <div class="place-list">
             <div class="place-card">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 1"></div>
-                        <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 2"></div>
+                        <div class="swiper-slide"><img src="img1.jpg" alt="ที่พัก 1"></div>
+                        <div class="swiper-slide"><img src="img2.jpg" alt="ที่พัก 2"></div>
+                        <div class="swiper-slide"><img src="img3.jpg" alt="ที่พัก 3"></div>
+                        <div class="swiper-slide"><img src="img4.jpg" alt="ที่พัก 4"></div>
+                        <div class="swiper-slide"><img src="img5.jpg" alt="ที่พัก 5"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-next"></div>
@@ -27,26 +40,23 @@
                 <div class="details">
                     <h2>🏡 บ้านพักริมทะเล</h2>
                     <p>🌊 ห่างทะเล: <strong>6.8 ก.ม.</strong> | 🏠 รับสูงสุด: <strong>15 คน</strong></p>
-                    <div class="pricing">
-                        <label>💰 ค่าที่พัก: <strong>5000</strong> บาท</label>
-                        <div class="bed-selection">
-                            <label>🛏️ ค่าเพิ่มเตียง:</label>
-                            <div class="bed-ui">
-                                <button onclick="changeBeds(-1, this)">➖</button>
-                                <input type="number" class="extraBeds" value="0" min="0" max="5" readonly>
-                                <button onclick="changeBeds(1, this)">➕</button>
-                            </div>
-                        </div>
-                        <label>💳 รวมค่าเตียงเสริม: <strong class="extraBedCost">0</strong> บาท</label>
-                    </div>
-                    <div class="total">
-                        <h3>💵 ยอดรวมทั้งหมด: <strong class="totalPrice">6000</strong> บาท</h3>
-                        <h4>🔄 ได้คืน: <strong class="refund">1000</strong> บาท (คืนค่าประกัน)</h4>
-                    </div>
-                    <button class="book-now" onclick="bookNow()">📅 จองเลย</button>
+                    <p>💰 ค่าที่พัก: <strong>5000</strong> บาท</p>
+                    <button class="like-button">❤️</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Weather Section -->
+    <div id="weather-info"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.getElementById("preloader").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
