@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เลือกที่พักของคุณ</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css"/>
 </head>
 <body>
     <div class="container"></div>
-    
+
     <div class="content">
         <h2>เลือกที่พักของคุณ</h2>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="house1.jpg" alt="บ้านพัก 1"></div>
-                <div class="swiper-slide"><img src="house2.jpg" alt="บ้านพัก 2"></div>
-                <div class="swiper-slide"><img src="house3.jpg" alt="บ้านพัก 3"></div>
-                <div class="swiper-slide"><img src="house4.jpg" alt="บ้านพัก 4"></div>
-                <div class="swiper-slide"><img src="house5.jpg" alt="บ้านพัก 5"></div>
+        
+        <div class="image-gallery">
+            <img id="mainImage" src="house1.jpg" alt="บ้านพัก" class="main-image">
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="house1.jpg" onclick="changeImage('house1.jpg')">
+                <img class="thumbnail" src="house2.jpg" onclick="changeImage('house2.jpg')">
+                <img class="thumbnail" src="house3.jpg" onclick="changeImage('house3.jpg')">
+                <img class="thumbnail" src="house4.jpg" onclick="changeImage('house4.jpg')">
+                <img class="thumbnail" src="house5.jpg" onclick="changeImage('house5.jpg')">
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
 
         <div class="info-box">
@@ -33,11 +31,9 @@
             
             <div class="bed-ui">
                 🛏 ค่าเพิ่มเตียง (300 บาท/เตียง):
-                <button onclick="changeBeds(-1)">-</button>
-                <input type="text" id="extraBeds" value="0" readonly>
-                <button onclick="changeBeds(1)">+</button>
+                <input type="number" id="extraBeds" value="0" min="0" max="5" onchange="updateTotal()">
+                <span>รวมค่าเตียงเสริม: <b><span id="extraBedCost">0</span> บาท</b></span>
             </div>
-            <p>🚍 รวมค่าเตียงเสริม: <b><span id="extraBedCost">0</span> บาท</b></p>
 
             <h3>💵 ยอดรวมทั้งหมด: <b><span id="totalPrice">6000</span> บาท</b></h3>
             <p>🔄 ได้คืน: <b><span id="refund">1000</span> บาท</b> (คืนค่าประกัน)</p>
@@ -45,11 +41,10 @@
             <p>💳 ชำระเงินกับ: <b>นางสาว สมใจ สุขใจ</b></p>
             <p>🏦 ธนาคารไทยพาณิชย์: <b>123-456-7890</b> ✅</p>
 
-            <button class="btn-reserve">🌍 ชมที่พัก</button>
+            <button class="btn-reserve" onclick="viewHouse()">🌍 ชมที่พัก</button>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
