@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>กำลังโหลด...</title>
     <link rel="stylesheet" href="loading.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            setTimeout(() => {
-                window.location.href = "index.html"; // ไปยังหน้าเว็บหลัก
-            }, Math.floor(Math.random() * 2000) + 3000); // โหลด 3-5 วินาที
-        });
-    </script>
 </head>
 <body>
     <div class="loading-container">
@@ -34,6 +27,13 @@
             <div class="spoke"></div>
         </div>
         <p class="loading-text">กำลังโหลด กรุณารอสักครู่...</p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-bar-inner"></div>
+        </div>
     </div>
+
+    <script src="loading.js"></script> <!-- เชื่อม JavaScript -->
 </body>
 </html>
