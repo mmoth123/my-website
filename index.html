@@ -3,65 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เลือกที่พัก</title>
+    <title>เลือกที่พักของคุณ</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css"/>
 </head>
 <body>
     <div class="container"></div>
-
+    
     <div class="content">
-        <h1>เลือกที่พักของคุณ</h1>
-
-        <div class="place-card">
-            <!-- แสดงรูปภาพแบบสไลด์ -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 1"></div>
-                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 2"></div>
-                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 3"></div>
-                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 4"></div>
-                    <div class="swiper-slide"><img src="https://img2.pic.in.th/pic/1deb6cd5117160a81.png" alt="บ้านพัก 5"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+        <h2>เลือกที่พักของคุณ</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="house1.jpg" alt="บ้านพัก 1"></div>
+                <div class="swiper-slide"><img src="house2.jpg" alt="บ้านพัก 2"></div>
+                <div class="swiper-slide"><img src="house3.jpg" alt="บ้านพัก 3"></div>
+                <div class="swiper-slide"><img src="house4.jpg" alt="บ้านพัก 4"></div>
+                <div class="swiper-slide"><img src="house5.jpg" alt="บ้านพัก 5"></div>
             </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
 
-            <div class="details">
-                <h2>🏡 บ้านพักริมทะเล</h2>
-                <p>🌊 ห่างทะเล: <strong>6.8 ก.ม.</strong> | 🏠 รับสูงสุด: <strong>15 คน</strong></p>
-                <p>🕒 เช็คอิน: <strong>14:00 น.</strong> | ⏳ เช็คเอาท์ก่อน: <strong>11:00 น.</strong></p>
-
-                <div class="pricing">
-                    <label>💰 ค่าที่พัก: <strong id="price">5000</strong> บาท</label>
-                    <label>🔒 ค่าประกัน: <strong id="deposit">1000</strong> บาท</label>
-                    <div class="bed-selection">
-                        <label>🛏️ ค่าเพิ่มเตียง (300 บาท/เตียง):</label>
-                        <div class="bed-ui">
-                            <button onclick="changeBeds(-1)">➖</button>
-                            <input type="number" id="extraBeds" value="0" min="0" max="5" readonly>
-                            <button onclick="changeBeds(1)">➕</button>
-                        </div>
-                    </div>
-                    <label>💳 รวมค่าเตียงเสริม: <strong id="extraBedCost">0</strong> บาท</label>
-                </div>
-
-                <div class="total">
-                    <h3>💵 ยอดรวมทั้งหมด: <strong id="totalPrice">6000</strong> บาท</h3>
-                    <h4>🔄 ได้คืน: <strong id="refund">1000</strong> บาท (คืนค่าประกัน)</h4>
-                </div>
-
-                <div class="payment-info">
-                    <p>💳 ชำระเงินกับ: <strong>นางสาว สมใจ สุขใจ</strong></p>
-                    <p>🏦 ธนาคารไทยพาณิชย์: <strong>123-456-7890</strong> <span class="verified">✔️</span></p>
-                </div>
-
-                <a href="https://poolvillacity.co.th/CITY-217" class="view-details-btn">🏡 ชมที่พัก</a>
+        <div class="info-box">
+            <h3>🏡 บ้านพักริมทะเล</h3>
+            <p>🌊 ห่างทะเล: <b>6.8 ก.ม.</b> | 🏠 รับสูงสุด: <b>15 คน</b></p>
+            <p>🕒 เช็คอิน: <b>14:00 น.</b> | ⏳ เช็คเอาท์ก่อน: <b>11:00 น.</b></p>
+            <p>💰 ค่าที่พัก: <b>5000 บาท</b> | 🔐 ค่าประกัน: <b>1000 บาท</b></p>
+            
+            <div class="bed-ui">
+                🛏 ค่าเพิ่มเตียง (300 บาท/เตียง):
+                <button onclick="changeBeds(-1)">-</button>
+                <input type="text" id="extraBeds" value="0" readonly>
+                <button onclick="changeBeds(1)">+</button>
             </div>
+            <p>🚍 รวมค่าเตียงเสริม: <b><span id="extraBedCost">0</span> บาท</b></p>
+
+            <h3>💵 ยอดรวมทั้งหมด: <b><span id="totalPrice">6000</span> บาท</b></h3>
+            <p>🔄 ได้คืน: <b><span id="refund">1000</span> บาท</b> (คืนค่าประกัน)</p>
+
+            <p>💳 ชำระเงินกับ: <b>นางสาว สมใจ สุขใจ</b></p>
+            <p>🏦 ธนาคารไทยพาณิชย์: <b>123-456-7890</b> ✅</p>
+
+            <button class="btn-reserve">🌍 ชมที่พัก</button>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
