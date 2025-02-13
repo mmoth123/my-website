@@ -1,20 +1,14 @@
-/* ปรับขนาด UI ให้เล็กลง และแสดงรายการที่พักแบบ Grid */
+/* ปรับขนาด UI ให้เล็กลง และแสดงรายการที่พักแบบ Grid พร้อมพื้นหลังเคลื่อนไหว */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #2c3e50, #4ca1af);
-    background-size: 400% 400%;
-    animation: backgroundAnimation 15s infinite linear;
     margin: 0;
     padding: 0;
     text-align: center;
     display: flex;
     justify-content: center;
-}
-
-@keyframes backgroundAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    background: #000;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .container {
@@ -37,12 +31,18 @@ body {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     text-align: left;
     font-size: 14px;
+    overflow: hidden;
 }
 
 .swiper-container {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
 }
 
 .swiper-slide img {
@@ -108,4 +108,25 @@ body {
 
 .book-now:hover {
     background: #218838;
+}
+
+/* พื้นหลังเคลื่อนไหว */
+.container::before {
+    content: "";
+    position: absolute;
+    inset: -145%;
+    rotate: -45deg;
+    background: #000000;
+    background-image: radial-gradient(4px 100px at 0px 235px, rgb(255, 140, 17), #0000),
+                      radial-gradient(4px 100px at 300px 235px, rgb(255, 119, 0), #884e2800);
+    animation: backgroundAnimation 100s linear infinite;
+}
+
+@keyframes backgroundAnimation {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-500px);
+    }
 }
